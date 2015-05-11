@@ -11,7 +11,7 @@
         <key>NAME</key>
         <string>FireAMP Mac Connector</string>
         <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps</string>
+        <string></string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
