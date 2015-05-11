@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release version of FireAMP and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.autopkg.munki.fireamp</string>
+    <key>Input</key>
+    <dict>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/FireAMP</string>
+        <key>NAME</key>
+        <string>FireAMP Mac Connector</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>FireAMP™: The only solution that provides the visibility and control needed to stop threats missed by other security layers. FireAMP is an intelligent, enterprise-class advanced malware analysis and protection solution for endpoints that uses big data to discover, understand and block advanced malware outbreaks. FireAMP answers questions like: “Where did the attack start?”, “Where and how did it spread?”, “How can it be controlled?”</string>
+            <key>display_name</key>
+            <string>FireAMP Mac Connector</string>
+            <key>name</key>
+            <string>%NAME%</string>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.autopkg.download.fireamp</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>installs</key>
+                    <array>
+                        <dict>
+							<key>CFBundleIdentifier</key>
+							<string>SourceFire-Inc.FireAMP-Mac</string>
+							<key>CFBundleName</key>
+							<string>FireAMP Mac</string>
+							<key>minosversion</key>
+							<string>10.7</string>
+							<key>path</key>
+							<string>/Applications/FireAMP/FireAMP Mac.app</string>
+                            <key>type</key>
+                            <string>file</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>

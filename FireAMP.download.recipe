@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release version of FireAMP</string>
+    <key>Identifier</key>
+    <string>com.github.autopkg.download.fireamp</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>FireAMP</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+            	<key>url</key>
+            	<string>https://console.amp.sourcefire.com/install_packages/b181cac7-42d7-49e1-8c99-b2d2079a81f3/download?product=MacProduct</string>
+                <key>filename</key>
+                <string>%NAME%.pkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>Protect_fireampmac_connector.app</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
