@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of FireAMP and imports into Munki.</string>
+    <string>Downloads the latest FireAMP release disk and imports into Munki.</string>
     <key>Identifier</key>
-    <string>com.github.autopkg.munki.fireamp</string>
+    <string>com.github.autopkg.munki.FireAMP</string>
     <key>Input</key>
     <dict>
-        <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps/FireAMP</string>
         <key>NAME</key>
         <string>FireAMP Mac Connector</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -24,39 +24,16 @@
             <string>FireAMP Mac Connector</string>
             <key>name</key>
             <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
         </dict>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.autopkg.download.fireamp</string>
+    <string>com.github.autopkg.download.FireAMP</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-            <key>Arguments</key>
-            <dict>
-                <key>additional_pkginfo</key>
-                <dict>
-                    <key>installs</key>
-                    <array>
-                        <dict>
-							<key>CFBundleIdentifier</key>
-							<string>SourceFire-Inc.FireAMP-Mac</string>
-							<key>CFBundleName</key>
-							<string>FireAMP Mac</string>
-							<key>minosversion</key>
-							<string>10.7</string>
-							<key>path</key>
-							<string>/Applications/FireAMP/FireAMP Mac.app</string>
-                            <key>type</key>
-                            <string>file</string>
-                        </dict>
-                    </array>
-                </dict>
-            </dict>
-        </dict>
         <dict>
             <key>Arguments</key>
             <dict>
